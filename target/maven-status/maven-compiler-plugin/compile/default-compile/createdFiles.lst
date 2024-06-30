@@ -1,0 +1,9 @@
+com\example\bingo\model\BingoCard.class
+com\example\bingo\service\PlayerService.class
+com\example\bingo\model\Player.class
+com\example\bingo\BingoApplication.class
+com\example\bingo\controller\BingoController.class
+com\example\bingo\service\BingoService.class
+com\example\bingo\controller\PlayerController.class
+com\example\bingo\repository\PlayerRepository.class
+com\example\bingo\repository\BingoCardRepository.class
