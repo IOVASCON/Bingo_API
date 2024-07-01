@@ -1,48 +1,78 @@
+<!-- Define que este é um projeto Maven e a versão do modelo POM que está sendo usada -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+         
+    <!-- Define a versão do modelo POM -->
     <modelVersion>4.0.0</modelVersion>
+
+    <!-- Identifica o grupo ao qual o projeto pertence -->
     <groupId>com.example</groupId>
+
+    <!-- Identifica o nome do artefato gerado -->
     <artifactId>bingo-api</artifactId>
+
+    <!-- Define a versão do artefato -->
     <version>1.0-SNAPSHOT</version>
+
+    <!-- Define o tipo de empacotamento do artefato (JAR no caso) -->
     <packaging>jar</packaging>
 
+    <!-- Define o nome do projeto -->
     <name>bingo-api</name>
+
+    <!-- Descreve o projeto -->
     <description>Bingo Game API using Spring WebFlux</description>
 
+    <!-- Define propriedades reutilizáveis no POM -->
     <properties>
+        <!-- Define a versão do Java utilizada -->
         <java.version>11</java.version>
+
+        <!-- Define a versão do Spring Boot utilizada -->
         <spring-boot.version>2.5.4</spring-boot.version>
     </properties>
 
+    <!-- Define as dependências do projeto -->
     <dependencies>
+        <!-- Dependência para o Spring Boot WebFlux, que permite criação de APIs reativas -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+
+        <!-- Dependência para o Spring Data MongoDB reativo -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+
+        <!-- Dependência para o envio de e-mails utilizando Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
             <version>${spring-boot.version}</version>
         </dependency>
+
+        <!-- Dependência para o Lombok, que facilita a criação de getters, setters, e outros métodos utilitários -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- Dependência para testes utilizando Spring Boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <version>${spring-boot.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <!-- Dependência para o Flapdoodle, que permite a execução de um MongoDB embutido para testes -->
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
@@ -51,18 +81,23 @@
         </dependency>
     </dependencies>
 
+    <!-- Configurações de build do projeto -->
     <build>
         <plugins>
+            <!-- Plugin para integração com Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
             </plugin>
+
+            <!-- Plugin para compilação do código Java -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
+                    <!-- Define a versão do Java para compilação -->
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>

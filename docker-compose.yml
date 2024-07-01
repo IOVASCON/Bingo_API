@@ -1,13 +1,25 @@
+# Define a versão do Docker Compose
 version: '3.8'
+
+# Define os serviços que serão configurados no Docker Compose
 services:
+  # Serviço MongoDB
   mongo:
+    # Usa a última versão da imagem oficial do MongoDB
     image: mongo:latest
+    # Nome do container para o MongoDB
     container_name: mongo
+    # Mapeamento de portas: mapeia a porta 27017 do container para a porta 27017 do host
     ports:
       - 27017:27017
+
+  # Serviço da aplicação Bingo API
   bingo-api:
+    # Constrói a imagem do Docker para a aplicação Bingo API usando o Dockerfile no diretório atual
     build: .
+    # Mapeamento de portas: mapeia a porta 8080 do container para a porta 8080 do host
     ports:
       - 8080:8080
+    # Define que o serviço 'bingo-api' depende do serviço 'mongo'
     depends_on:
       - mongo
